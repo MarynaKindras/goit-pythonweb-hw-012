@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="uk" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сервіс контактів &mdash; Contacts API 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5a0ebc6c"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Індекс" href="genindex.html" />
+    <link rel="search" title="Пошук" href="search.html" />
+    <link rel="next" title="Сервіс користувачів" href="services.user.html" />
+    <link rel="prev" title="Сервіс автентифікації" href="services.auth.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Contacts API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Зміст:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Модулі</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="entity.models.html">Моделі</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.auth.html">Сервіс автентифікації</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Сервіс контактів</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#services.contacts.ContactService"><code class="docutils literal notranslate"><span class="pre">ContactService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.repository"><code class="docutils literal notranslate"><span class="pre">ContactService.repository</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.create_contact"><code class="docutils literal notranslate"><span class="pre">ContactService.create_contact()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.delete_contact"><code class="docutils literal notranslate"><span class="pre">ContactService.delete_contact()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.get_birthday_contacts"><code class="docutils literal notranslate"><span class="pre">ContactService.get_birthday_contacts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.get_contact"><code class="docutils literal notranslate"><span class="pre">ContactService.get_contact()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.get_contacts"><code class="docutils literal notranslate"><span class="pre">ContactService.get_contacts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.get_upcoming_birthdays"><code class="docutils literal notranslate"><span class="pre">ContactService.get_upcoming_birthdays()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.search_contacts"><code class="docutils literal notranslate"><span class="pre">ContactService.search_contacts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services.contacts.ContactService.update_contact"><code class="docutils literal notranslate"><span class="pre">ContactService.update_contact()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services.user.html">Сервіс користувачів</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.upload_file_service.html">Сервіс завантаження файлів</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.depend_service.html">Сервіс залежностей</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Endpoints</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Contacts API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Модулі</a></li>
+      <li class="breadcrumb-item active">Сервіс контактів</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/services.contacts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Сервіс контактів<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<dl class="py class" id="module-services.contacts">
+<dt class="sig sig-object py" id="services.contacts.ContactService">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">services.contacts.</span></span><span class="sig-name descname"><span class="pre">ContactService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AsyncSession</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/services/contacts.html#ContactService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Сервіс для роботи з контактами.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="services.contacts.ContactService.repository">
+<span class="sig-name descname"><span class="pre">repository</span></span><a class="headerlink" href="#services.contacts.ContactService.repository" title="Link to this definition"></a></dt>
+<dd><p>Репозиторій контактів</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ContactRepository</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="services.contacts.ContactService.create_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ContactCreate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">User</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ContactResponse</span></span></span><a class="reference internal" href="_modules/services/contacts.html#ContactService.create_contact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService.create_contact" title="Link to this definition"></a></dt>
+<dd><p>Створює новий контакт.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметри<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contact</strong> (<em>ContactCreate</em>) – Дані для створення контакту</p></li>
+<li><p><strong>user</strong> (<a class="reference internal" href="entity.models.html#entity.models.User" title="entity.models.User"><em>User</em></a>) – Користувач, який створює контакт</p></li>
+</ul>
+</dd>
+<dt class="field-even">Повертає<span class="colon">:</span></dt>
+<dd class="field-even"><p>Створений контакт</p>
+</dd>
+<dt class="field-odd">Тип повернення<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ContactResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="services.contacts.ContactService.delete_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">User</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ContactResponse</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/services/contacts.html#ContactService.delete_contact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService.delete_contact" title="Link to this definition"></a></dt>
+<dd><p>Видаляє контакт.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметри<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contact_id</strong> (<em>int</em>) – ID контакту</p></li>
+<li><p><strong>user</strong> (<a class="reference internal" href="entity.models.html#entity.models.User" title="entity.models.User"><em>User</em></a>) – Користувач, чий контакт видаляється</p></li>
+</ul>
+</dd>
+<dt class="field-even">Повертає<span class="colon">:</span></dt>
+<dd class="field-even"><p>Видалений контакт або None, якщо не знайдено</p>
+</dd>
+<dt class="field-odd">Тип повернення<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[ContactResponse]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="services.contacts.ContactService.get_birthday_contacts">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_birthday_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">days</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ContactResponse</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/services/contacts.html#ContactService.get_birthday_contacts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService.get_birthday_contacts" title="Link to this definition"></a></dt>
+<dd><p>Отримання контактів з днями народження на вказану кількість днів</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="services.contacts.ContactService.get_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">User</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ContactResponse</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/services/contacts.html#ContactService.get_contact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService.get_contact" title="Link to this definition"></a></dt>
+<dd><p>Отримує контакт за ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметри<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contact_id</strong> (<em>int</em>) – ID контакту</p></li>
+<li><p><strong>user</strong> (<a class="reference internal" href="entity.models.html#entity.models.User" title="entity.models.User"><em>User</em></a>) – Користувач, чий контакт потрібно отримати</p></li>
+</ul>
+</dd>
+<dt class="field-even">Повертає<span class="colon">:</span></dt>
+<dd class="field-even"><p>Контакт або None, якщо не знайдено</p>
+</dd>
+<dt class="field-odd">Тип повернення<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[ContactResponse]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="services.contacts.ContactService.get_contacts">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">User</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ContactResponse</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/services/contacts.html#ContactService.get_contacts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService.get_contacts" title="Link to this definition"></a></dt>
+<dd><p>Отримує список контактів з пагінацією.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметри<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>limit</strong> (<em>int</em>) – Кількість контактів на сторінку</p></li>
+<li><p><strong>offset</strong> (<em>int</em>) – Зміщення для пагінації</p></li>
+<li><p><strong>user</strong> (<a class="reference internal" href="entity.models.html#entity.models.User" title="entity.models.User"><em>User</em></a>) – Користувач, чиї контакти потрібно отримати</p></li>
+</ul>
+</dd>
+<dt class="field-even">Повертає<span class="colon">:</span></dt>
+<dd class="field-even"><p>Список контактів</p>
+</dd>
+<dt class="field-odd">Тип повернення<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[ContactResponse]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="services.contacts.ContactService.get_upcoming_birthdays">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_upcoming_birthdays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">User</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ContactResponse</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/services/contacts.html#ContactService.get_upcoming_birthdays"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService.get_upcoming_birthdays" title="Link to this definition"></a></dt>
+<dd><p>Отримує контакти з майбутніми днями народження.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметри<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user</strong> (<a class="reference internal" href="entity.models.html#entity.models.User" title="entity.models.User"><em>User</em></a>) – Користувач, чиї контакти перевіряються</p>
+</dd>
+<dt class="field-even">Повертає<span class="colon">:</span></dt>
+<dd class="field-even"><p>Список контактів з майбутніми днями народження</p>
+</dd>
+<dt class="field-odd">Тип повернення<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[ContactResponse]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="services.contacts.ContactService.search_contacts">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">search_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">User</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ContactResponse</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/services/contacts.html#ContactService.search_contacts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService.search_contacts" title="Link to this definition"></a></dt>
+<dd><p>Розширений пошук контактів з додатковою бізнес-логікою</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="services.contacts.ContactService.update_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contact_update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ContactUpdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">User</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ContactResponse</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/services/contacts.html#ContactService.update_contact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#services.contacts.ContactService.update_contact" title="Link to this definition"></a></dt>
+<dd><p>Оновлює контакт.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметри<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contact_id</strong> (<em>int</em>) – ID контакту</p></li>
+<li><p><strong>contact_update</strong> (<em>ContactUpdate</em>) – Дані для оновлення</p></li>
+<li><p><strong>user</strong> (<a class="reference internal" href="entity.models.html#entity.models.User" title="entity.models.User"><em>User</em></a>) – Користувач, чий контакт оновлюється</p></li>
+</ul>
+</dd>
+<dt class="field-even">Повертає<span class="colon">:</span></dt>
+<dd class="field-even"><p>Оновлений контакт або None, якщо не знайдено</p>
+</dd>
+<dt class="field-odd">Тип повернення<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[ContactResponse]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="services.auth.html" class="btn btn-neutral float-left" title="Сервіс автентифікації" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="services.user.html" class="btn btn-neutral float-right" title="Сервіс користувачів" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
